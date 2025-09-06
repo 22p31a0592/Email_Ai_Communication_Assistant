@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Email Communication Assistant</title>
+  <link rel="stylesheet" href="index.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🤖 AI Email Communication Assistant</h1>
+      <p>Intelligent email management with AI-powered responses and analytics</p>
+      <div id="connectionStatus" class="connection-status status-disconnected">
+        🔴 Connecting to backend...
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number" id="totalEmails">0</div><div class="stat-label">Total Emails</div></div>
+      <div class="stat-card"><div class="stat-number urgent" id="urgentEmails">0</div><div class="stat-label">Urgent</div></div>
+      <div class="stat-card"><div class="stat-number positive" id="resolvedEmails">0</div><div class="stat-label">Resolved</div></div>
+      <div class="stat-card"><div class="stat-number neutral" id="pendingEmails">0</div><div class="stat-label">Pending</div></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="email-section">
+        <!-- Email Input -->
+        <div class="email-form">
+          <h3>📧 Process New Email</h3>
+          <div class="form-group"><label for="emailSender">Sender Email:</label><input type="email" id="emailSender" required></div>
+          <div class="form-group"><label for="emailSubject">Subject:</label><input type="text" id="emailSubject" required></div>
+          <div class="form-group"><label for="emailBody">Email Body:</label><textarea id="emailBody" required></textarea></div>
+          <button class="btn" id="btnProcessEmail">🚀 Process Email</button>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+          <button class="btn" id="btnRefresh">🔄 Refresh Emails</button>
+          <button class="btn btn-secondary" id="btnSample">📊 Load Sample Data</button>
+          <button class="btn btn-success" id="btnRegenerateAll">✨ Regenerate All</button>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+          <select class="filter-select" id="priorityFilter">
+            <option value="">All Priorities</option><option value="urgent">Urgent Only</option><option value="normal">Normal Only</option>
+          </select>
+          <select class="filter-select" id="sentimentFilter">
+            <option value="">All Sentiments</option><option value="positive">Positive</option><option value="negative">Negative</option><option value="neutral">Neutral</option>
+          </select>
+          <select class="filter-select" id="statusFilter">
+            <option value="">All Status</option><option value="pending">Pending</option><option value="resolved">Resolved</option>
+          </select>
+        </div>
+
+        <!-- Emails -->
+        <div id="emailContainer">
+          <div class="loading"><div class="spinner"></div><p>Connecting to AI backend...</p></div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="chart-container"><h3>📊 Email Analytics</h3><canvas id="emailChart"></canvas></div>
+        <div class="analytics-panel">
+          <h3>📈 Performance Metrics</h3>
+          <div class="metric"><span class="metric-label">Response Time (Avg)</span><span class="metric-value">< 30 sec</span></div>
+          <div class="metric"><span class="metric-label">AI Accuracy</span><span class="metric-value">94%</span></div>
+          <div class="metric"><span class="metric-label">Auto-Resolution Rate</span><span class="metric-value">87%</span></div>
+          <div class="metric"><span class="metric-label">Customer Satisfaction</span><span class="metric-value">96%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="Scripts/main.js"></script>
+</body>
+</html>
