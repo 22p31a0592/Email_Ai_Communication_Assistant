@@ -1,8 +1,0 @@
-flask
-flask-cors
-transformers
-torch
-pandas
-numpy
-scikit-learn
-sentence-transformers
